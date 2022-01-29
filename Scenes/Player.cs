@@ -50,17 +50,6 @@ public class Player : KinematicBody2D {
 	}
 
 	public void jump() {
-
-	}
-
-	public void jumpCut() {
-		
-	}
-	public void jump() {
-		// velocity.y = -JUMP_VELOCITY;s
-	}
-
-	public void jump() {
 		// velocity.y = -JUMP_VELOCITY;s
 	}
 

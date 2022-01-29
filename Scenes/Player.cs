@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public class Player : KinematicBody2D {
-    [Export] public int speed = 200;
+	[Export] public int speed = 200;
 
     public Vector2 velocity = new Vector2();
 
@@ -11,18 +11,19 @@ public class Player : KinematicBody2D {
     [Export] public int JumpVelocity = 400;
     [Export] public int Gravity = 8;
 
-    public void GetInput() {
-        velocity = new Vector2();
+	public void GetInput() {
+		velocity = new Vector2();
 
-        if (Input.IsActionJustPressed("jump"))
-            jump();
+		if (Input.IsActionJustPressed("jump"))
+			jump();
 
-        if (Input.IsActionJustReleased("jump"))
-            jumpStop();
+		if (Input.IsActionJustReleased("jump"))
+			jumpStop();
 
-        velocity = velocity.Normalized() * speed;
-    }
+		velocity = velocity.Normalized() * speed;
+	}
 
+<<<<<<< HEAD
     public override void _PhysicsProcess(float delta) {
         GetInput();
 
@@ -45,7 +46,22 @@ public class Player : KinematicBody2D {
 
         velocity = MoveAndSlide(velocity);
     }
+=======
+	public override void _PhysicsProcess(float delta) {
+		GetInput();
+		velocity = MoveAndSlide(velocity);
+	}
 
+<<<<<<< HEAD
+	public void jump() {
+
+	}
+>>>>>>> f6cb56a6cae0ca5afbd1fe13d3d91276056a7ba4
+
+	public void jumpCut() {
+		
+	}
+=======
     public void jump() {
         // velocity.y = -JUMP_VELOCITY;s
     }
@@ -53,4 +69,5 @@ public class Player : KinematicBody2D {
     public void jumpStop() {
 
     }
+>>>>>>> 6767f79580cbdf8f2a275f6226e0133d5bb8de2a
 }

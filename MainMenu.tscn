@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -25,3 +26,5 @@ valign = 2
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 421, 354 )
+
+[node name="ObstacleGenerator" parent="." instance=ExtResource( 2 )]

@@ -9,17 +9,11 @@ public class Player : KinematicBody2D {
     public void GetInput() {
         velocity = new Vector2();
 
-        if (Input.IsActionPressed("right"))
-            velocity.x += 1;
+        if (Input.IsActionJustPressed("jump"))
+            jump();
 
-        if (Input.IsActionPressed("left"))
-            velocity.x -= 1;
-
-        if (Input.IsActionPressed("down"))
-            velocity.y += 1;
-
-        if (Input.IsActionPressed("up"))
-            velocity.y -= 1;
+        if (Input.IsActionJustReleased("jump"))
+            jumpStop();
 
         velocity = velocity.Normalized() * speed;
     }
@@ -27,5 +21,13 @@ public class Player : KinematicBody2D {
     public override void _PhysicsProcess(float delta) {
         GetInput();
         velocity = MoveAndSlide(velocity);
+    }
+
+    public void jump() {
+
+    }
+
+    public void jumpCut() {
+        
     }
 }

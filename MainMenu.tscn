@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/MochiyPopPOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/ygf_background_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ygf_background_2.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
 font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -33,13 +43,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.3409
-margin_top = -7.20696
-margin_right = 277.659
-margin_bottom = 95.793
-rect_scale = Vector2( 0.101227, 0.101227 )
+margin_left = -25.3651
+margin_top = -8.32422
+margin_right = 276.635
+margin_bottom = 94.6758
+rect_scale = Vector2( 0.0455051, 0.0455051 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 9
 custom_fonts/font = SubResource( 1 )
 text = "START"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Start"]
+position = Vector2( 0.558594, 0.931 )
+scale = Vector2( 0.0931012, 0.0931012 )
+z_index = -1
+frames = SubResource( 2 )
+frame = 1
+playing = true

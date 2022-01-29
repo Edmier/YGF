@@ -6,50 +6,50 @@ public class Player : KinematicBody2D {
 
 	public Vector2 velocity = new Vector2();
 
-    [Export] public int flip = 1;
+	[Export] public int flip = 1;
 
-    //#Jump 
-    [Export] public float fall_gravity_scale = 150.0f;
-    [Export] public float low_jump_gravity_scale = 100.0f;
-    [Export] public float jump_power = 500.0f;
-    private bool jump_released = false;
+	//#Jump 
+	[Export] public float fall_gravity_scale = 150.0f;
+	[Export] public float low_jump_gravity_scale = 100.0f;
+	[Export] public float jump_power = 500.0f;
+	private bool jump_released = false;
 
-    //#Physics
-    public float earth_gravity = 9.807f;
-    [Export] public float gravity_scale = 100.0f;
-    private bool on_floor = false;
+	//#Physics
+	public float earth_gravity = 9.807f;
+	[Export] public float gravity_scale = 100.0f;
+	private bool on_floor = false;
 
 	public void GetInput(float delta) {
-        if (Input.IsActionJustReleased("jump"))
-            jump_released = true;
+		if (Input.IsActionJustReleased("jump"))
+			jump_released = true;
 
-        // #Applying gravity to player
-        velocity += new Vector2(0, 1) * earth_gravity * gravity_scale * delta * flip;
+		// #Applying gravity to player
+		velocity += new Vector2(0, 1) * earth_gravity * gravity_scale * delta * flip;
 
-        // #Jump Physics
-        if (velocity.y > 0) { // #Player is falling
-            // #Falling action is faster than jumping action | Like in mario
-            // #On falling we apply a second gravity to the player
-            // #We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
-            velocity += new Vector2(0, 1) * earth_gravity * fall_gravity_scale * delta * flip;
-        } else if (velocity.y < 0 && jump_released) {// #Player is jumping 
-            // #Jump Height depends on how long you will hold key
-            // #If we release the jump before reaching the max height 
-            // #We apply ((gravity_scale + low_jump_gravity_scale) * earth_gravity) gravity on the player
-            // #It result on a lower jump
-            velocity += new Vector2(0, 1) * earth_gravity * low_jump_gravity_scale * delta * flip;
-        }
+		// #Jump Physics
+		if (velocity.y > 0) { // #Player is falling
+			// #Falling action is faster than jumping action | Like in mario
+			// #On falling we apply a second gravity to the player
+			// #We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
+			velocity += new Vector2(0, 1) * earth_gravity * fall_gravity_scale * delta * flip;
+		} else if (velocity.y < 0 && jump_released) {// #Player is jumping 
+			// #Jump Height depends on how long you will hold key
+			// #If we release the jump before reaching the max height 
+			// #We apply ((gravity_scale + low_jump_gravity_scale) * earth_gravity) gravity on the player
+			// #It result on a lower jump
+			velocity += new Vector2(0, 1) * earth_gravity * low_jump_gravity_scale * delta * flip;
+		}
 
-        if (on_floor) {
-            if (Input.IsActionJustPressed("jump")) {
-                velocity = new Vector2(0, -1) * jump_power * flip; //#Normal Jump action
-                jump_released = false;
-            }
-        }
-        velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+		if (on_floor) {
+			if (Input.IsActionJustPressed("jump")) {
+				velocity = new Vector2(0, -1) * jump_power * flip; //#Normal Jump action
+				jump_released = false;
+			}
+		}
+		velocity = MoveAndSlide(velocity, new Vector2(0, -1));
 
-        if (IsOnFloor() || IsOnCeiling()) on_floor = true;
-        else on_floor = false;
+		if (IsOnFloor() || IsOnCeiling()) on_floor = true;
+		else on_floor = false;
 	}
 	public override void _PhysicsProcess(float delta) {
 		GetInput(delta);

@@ -28,12 +28,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 105, 311 )
-FallMultiplier = 12
-LowJumpMultiplier = 3
-GravityEffect = 1
-GRAVITY = 2.81
+[node name="TopPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 310 )
+
+[node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 383 )
+rotation = 3.14159
+flip = -1
 
 [node name="Floor" type="StaticBody2D" parent="."]
 

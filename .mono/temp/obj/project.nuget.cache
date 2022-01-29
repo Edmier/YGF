@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "uCQxuHO/a9LMJ0/BntmFuyJbUrD72n/tmWaJ2zG6rnzCQBjUn6zdrxt/zOGArhrhwlOa9FxJObCOK6aGt1WgkQ==",
+  "success": true,
+  "projectFilePath": "G:\\Sversium\\YGF\\YGF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\edmie\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\edmie\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.0\\microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

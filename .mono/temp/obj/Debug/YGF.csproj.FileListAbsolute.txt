@@ -1,0 +1,9 @@
+G:\Sversium\YGF\.mono\temp\bin\Debug\YGF.dll
+G:\Sversium\YGF\.mono\temp\bin\Debug\YGF.pdb
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.csproj.AssemblyReference.cache
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.GeneratedMSBuildEditorConfig.editorconfig
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.AssemblyInfoInputs.cache
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.AssemblyInfo.cs
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.csproj.CoreCompileInputs.cache
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.dll
+G:\Sversium\YGF\.mono\temp\obj\Debug\YGF.pdb

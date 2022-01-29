@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/duyote blue/000.png" type="Texture" id=1]
 [ext_resource path="res://Assets/duyote blue/001.png" type="Texture" id=2]
@@ -15,10 +15,15 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="KinematicBody2D2" type="KinematicBody2D"]
 
 [node name="CoyoteBlueSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 530, 172 )
 frames = SubResource( 1 )
-frame = 68
+frame = 28
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

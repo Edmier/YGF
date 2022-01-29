@@ -21,13 +21,34 @@ public class Player : KinematicBody2D {
 
 		velocity = velocity.Normalized() * speed;
 	}
+    public override void _PhysicsProcess(float delta) {
+        GetInput();
+
+        velocity.y += Gravity;
+
+            //#Jump Physics
+        if (velocity.y > 0) { //#Player is falling
+            velocity += Vector2.UP * (-9.81) * (FallMultiplier); //#Falling action is faster than jumping action | Like in mario
+        }
+        else if (velocity.y < 0 && Input.IsActionJustReleased("jump")) { //#Player is jumping 
+            velocity += Vector2.UP * (-9.81) * (LowJumpMultiplier); //#Jump Height depends on how long you will hold key
+        }
+        if (IsOnFloor()) {
+            if (Input.IsActionJustPressed("jump")) { 
+                velocity = Vector2.UP * JumpVelocity; //#Normal Jump action
+            }
+        }
+
+        velocity = MoveAndSlide(velocity, Vector2(0,-1));
+
+        velocity = MoveAndSlide(velocity);
+    }
 
 	public override void _PhysicsProcess(float delta) {
 		GetInput();
 		velocity = MoveAndSlide(velocity);
 	}
 
-<<<<<<< HEAD
 	public void jump() {
 
 	}
@@ -35,13 +56,21 @@ public class Player : KinematicBody2D {
 	public void jumpCut() {
 		
 	}
-=======
 	public void jump() {
 		// velocity.y = -JUMP_VELOCITY;s
 	}
+=======
+
+    public void jump() {
+        // velocity.y = -JUMP_VELOCITY;s
+    }
 
 	public void jumpStop() {
 
+<<<<<<< HEAD
 	}
 >>>>>>> 6767f79580cbdf8f2a275f6226e0133d5bb8de2a
+=======
+    }
+>>>>>>> cd3bd8458c22d64fc1fadbabcd2b2e15e3ed6da5
 }

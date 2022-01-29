@@ -10,7 +10,7 @@ public class Player : KinematicBody2D {
 	[Export] public int LowJumpMultiplier = 10;
 	[Export] public int JumpVelocity = 400;
 
-    [Export] public int Gravity = 8;
+	[Export] public int Gravity = 8;
 
 	public void GetInput() {
 		velocity = new Vector2();

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 512, 1.5 )
+extents = Vector2( 640, 1.5 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,18 +21,22 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -300.0
+anchor_bottom = 0.481
+margin_bottom = -0.320038
 rect_pivot_offset = Vector2( 1627, 45 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 110, 235 )
+position = Vector2( 105, 311 )
+FallMultiplier = 12
+LowJumpMultiplier = 3
+GravityEffect = 1
+GRAVITY = 2.81
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 512, 300 )
+position = Vector2( 640, 346 )
 shape = SubResource( 1 )

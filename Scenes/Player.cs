@@ -44,11 +44,6 @@ public class Player : KinematicBody2D {
 		velocity = MoveAndSlide(velocity);
 	}
 
-	public override void _PhysicsProcess(float delta) {
-		GetInput();
-		velocity = MoveAndSlide(velocity);
-	}
-
 	public void jump() {
 		// velocity.y = -JUMP_VELOCITY;s
 	}

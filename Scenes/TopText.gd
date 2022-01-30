@@ -37,8 +37,9 @@ func _on_Timer_timeout():
 	elif (x == 5): 
 		set_text("Far from insanity.")
 		x = x + 1
-	elif (x==6) :
+	elif (x==6):
 		emit_signal("good_end")
+		get_tree().change_scene("res://scenes/Good_End_scene.tscn");
 	
 	
 	

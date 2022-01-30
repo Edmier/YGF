@@ -12,6 +12,8 @@ config_version=4
 
 config/name="YGF"
 run/main_scene="res://MainMenu.tscn"
+boot_splash/image="res://Assets/Doughyote/doggo + text.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [display]

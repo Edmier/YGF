@@ -17,7 +17,7 @@ public class Player : KinematicBody2D {
 	[Export] public float gravity_scale = 100.0f;
 	private bool on_floor = false;
 	private int flip = 1;
-    [Export] public int StartXPos = 275;
+    [Export] public int StartXPos = 325;
 
     private AnimatedSprite _sprite;
 
@@ -66,7 +66,7 @@ public class Player : KinematicBody2D {
 	}
 	public override void _PhysicsProcess(float delta) {
         if (Position.x < StartXPos) {
-            velocity += new Vector2(0.25f, 0);
+            velocity += new Vector2(0.5f, 0);
             float Opacity = (float) Mathf.InverseLerp(0, StartXPos, Position.x);
 
             Color color = new Color(1, 1, 1, Opacity);

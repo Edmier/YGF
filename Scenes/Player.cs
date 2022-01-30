@@ -65,14 +65,17 @@ public class Player : KinematicBody2D {
 		else on_floor = false;
 	}
 	public override void _PhysicsProcess(float delta) {
-		GetInput(delta);
-
         if (Position.x < StartXPos) {
+            velocity += new Vector2(0.25f, 0);
             float Opacity = (float) Mathf.InverseLerp(0, StartXPos, Position.x);
 
             Color color = new Color(1, 1, 1, Opacity);
             _sprite.Modulate = color;
+        } else {
+            velocity = new Vector2(0, velocity.y);
         }
+
+        GetInput(delta);
 	}
 
 	public void jump() {

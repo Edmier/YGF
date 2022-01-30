@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class ObstacleGenerator : Node
 {
 	[Export] public int ScrollSpeed = 100;
-	[Export] public int Frequency = 500;
-    [Export] public int Cooldown = 50;
-    private int timer = 0;
+	[Export] public int Frequency = 10;
+    [Export] public int Cooldown = 10;
+    private double Timer = 0;
 
 	private PackedScene ObstacleScene = ResourceLoader.Load<PackedScene>("res://Scenes/Obstacle.tscn");
 	private List<Obstacle> Obstacles = new List<Obstacle>();
@@ -20,10 +20,13 @@ public class ObstacleGenerator : Node
 	}
 
 	public override void _PhysicsProcess(float delta) {
-		if (random.Next(0, Frequency) == 0) {
+		if (random.Next(0, Frequency) == 0 && Timer <= 0) {
 			createObstacle();
-            // lastXPos = Position.x;
+            Timer = Cooldown;
 		}
+        if (Timer > 0) {
+            Timer -= 0.8 + (0.8 * delta);
+        }
 	}
 
 	public void createObstacle() {
@@ -33,4 +36,8 @@ public class ObstacleGenerator : Node
 		AddChild(newObs);
 		spawnTop = !spawnTop;
 	}
+
+    public void CrossedThreshold() {
+        Console.WriteLine("Wild");
+    }
 }

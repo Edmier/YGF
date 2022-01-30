@@ -77,10 +77,12 @@ __meta__ = {
 
 [node name="TopPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 310 )
+fall_gravity_scale = 200.0
 
 [node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 383 )
 rotation = 3.14159
+fall_gravity_scale = 200.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -108,6 +110,8 @@ autoplay = true
 script = ExtResource( 10 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
+ScrollSpeed = 500
+Frequency = 50
 
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]

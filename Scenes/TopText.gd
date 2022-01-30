@@ -1,6 +1,7 @@
 extends Label
 
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,6 +34,8 @@ func _on_Timer_timeout():
 	elif (x == 4): 
 		set_text("You'll go far.")
 		x = x + 1
+	elif (x == 5): 
+		set_text("Far from insanity.")
 	
 	
 	

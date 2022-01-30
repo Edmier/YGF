@@ -1,4 +1,5 @@
 extends Label
+signal coyote_time
 
 
 # Declare member variables here. Examples:
@@ -31,5 +32,8 @@ func _on_Timer_timeout():
 		set_text("Of foolishness.")
 		x = x + 1
 	elif (x == 4): 
+		emit_signal("coyote_time")
 		set_text("You'll go far.")
 		x = x + 1
+	elif (x == 5): 
+		set_text("Far from being free.")

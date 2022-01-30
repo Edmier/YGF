@@ -15,7 +15,7 @@ public class Obstacle : RigidBody2D
 	}
 
 	public override void _PhysicsProcess(float delta) {
-		// Position.x -= (ScrollSpeed / 100 * delta);
+		Position -= new Vector2(ScrollSpeed * delta, 0);
 
 		if (Position.x < -100) {
 			QueueFree();

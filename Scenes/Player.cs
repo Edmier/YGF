@@ -23,11 +23,11 @@ public class Player : KinematicBody2D {
     }
 
 	public void GetInput(float delta) {
-        if (Input.IsActionJustReleased("jump"))
-            jump_released = true;
+		if (Input.IsActionJustReleased("jump"))
+			jump_released = true;
 
-        // #Applying gravity to player
-        velocity += new Vector2(0, 1) * earth_gravity * gravity_scale * delta * flip;
+		// #Applying gravity to player
+		velocity += new Vector2(0, 1) * earth_gravity * gravity_scale * delta * flip;
 
         // #Jump Physics
         if (flip == -1 ? velocity.y < 0 : velocity.y > 0) { // #Player is falling
@@ -43,16 +43,16 @@ public class Player : KinematicBody2D {
             velocity += new Vector2(0, 1) * earth_gravity * low_jump_gravity_scale * delta * flip;
         }
 
-        if (on_floor) {
-            if (Input.IsActionJustPressed("jump")) {
-                velocity = new Vector2(0, -1) * jump_power * flip; //#Normal Jump action
-                jump_released = false;
-            }
-        }
-        velocity = MoveAndSlide(velocity, new Vector2(0, -1));
+		if (on_floor) {
+			if (Input.IsActionJustPressed("jump")) {
+				velocity = new Vector2(0, -1) * jump_power * flip; //#Normal Jump action
+				jump_released = false;
+			}
+		}
+		velocity = MoveAndSlide(velocity, new Vector2(0, -1));
 
-        if (IsOnFloor() || IsOnCeiling()) on_floor = true;
-        else on_floor = false;
+		if (IsOnFloor() || IsOnCeiling()) on_floor = true;
+		else on_floor = false;
 	}
 	public override void _PhysicsProcess(float delta) {
 		GetInput(delta);

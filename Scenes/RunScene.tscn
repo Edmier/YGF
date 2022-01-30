@@ -79,7 +79,7 @@ __meta__ = {
 position = Vector2( 200, 310 )
 
 [node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 383 )
+position = Vector2( 200, 387 )
 rotation = 3.14159
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -112,6 +112,5 @@ script = ExtResource( 10 )
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]
-[connection signal="coyote_time" from="CanvasLayer/BottomText" to="coyotemusic" method="_on_BottomText_coyote_time"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/TopText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/BottomText" method="_on_Timer_timeout"]

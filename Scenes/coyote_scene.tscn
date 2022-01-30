@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/BottomText.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/TopText.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/CoyoteOrange.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/CoyoteBlue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/CoyoteBlue.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/CoyoteOrange.gd" type="Script" id=8]
+[ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 2 )
+
+[node name="Node2D2" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 1627, 45 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 0.481
+margin_bottom = -0.320038
+rect_pivot_offset = Vector2( 1627, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoyoteTopText" type="Label" parent="CanvasLayer"]
+margin_left = 60.0
+margin_top = 92.0
+margin_right = 884.0
+margin_bottom = 238.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.164706, 0.207843, 0.635294, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "I met a coyote."
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomText" type="Label" parent="CanvasLayer"]
+margin_left = 1212.0
+margin_top = 671.0
+margin_right = 2036.0
+margin_bottom = 817.0
+rect_rotation = 180.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.866667, 0.541176, 0.2, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "I met a coyote."
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 275, 310 )
+fall_gravity_scale = 200.0
+
+[node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 275, 383 )
+rotation = 3.14159
+fall_gravity_scale = 200.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="blue_coyote" parent="." instance=ExtResource( 6 )]
+position = Vector2( 896, 201 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 7 )
+
+[node name="orange_coyote" parent="." instance=ExtResource( 5 )]
+position = Vector2( 984, 452 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 8 )
+
+[node name="Coyote" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
+[connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
+[connection signal="coyote_time" from="CanvasLayer/BottomText" to="Coyote" method="_on_BottomText_coyote_time"]
+[connection signal="timeout" from="Timer" to="CanvasLayer/CoyoteTopText" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="CanvasLayer/BottomText" method="_on_Timer_timeout"]

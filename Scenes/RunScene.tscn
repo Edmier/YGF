@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,11 +11,8 @@
 [ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Music.gd" type="Script" id=10]
 [ext_resource path="res://ygf_main.mp3" type="AudioStream" id=11]
-[ext_resource path="res://Assets/good_end.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/good_ending.gd" type="Script" id=13]
 [ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
-[ext_resource path="res://Assets/gameover.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -82,10 +79,12 @@ __meta__ = {
 
 [node name="TopPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 310 )
+fall_gravity_scale = 200.0
 
 [node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 383 )
 rotation = 3.14159
+fall_gravity_scale = 200.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -94,7 +93,6 @@ position = Vector2( 640, 346 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
 autostart = true
 
 [node name="blue_coyote" parent="." instance=ExtResource( 6 )]
@@ -113,23 +111,13 @@ autoplay = true
 script = ExtResource( 10 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
-
-[node name="good_ending" type="Sprite" parent="."]
-position = Vector2( 640, 360 )
-z_index = 1000
-texture = ExtResource( 12 )
-script = ExtResource( 13 )
+ScrollSpeed = 500
+Frequency = 50
 
 [node name="Coyote" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 script = ExtResource( 15 )
 
-[node name="bad_ending" type="Sprite" parent="."]
-visible = false
-position = Vector2( 640, 360 )
-texture = ExtResource( 16 )
-
-[connection signal="good_end" from="CanvasLayer/TopText" to="good_ending" method="_on_TopText_good_end"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]

@@ -17,11 +17,15 @@ public class Player : KinematicBody2D {
 	[Export] public float gravity_scale = 100.0f;
 	private bool on_floor = false;
 	private int flip = 1;
+    [Export] public int StartXPos = 275;
+
+    private AnimatedSprite _sprite;
 
 	public override void _Ready() {
 		flip = Transform.Rotation > 0 ? -1 : 1;
-        if (flip == -1) {
-            var _sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+        _sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+
+        if (flip == -1) {            
             _sprite.Animation = "flip";
             _sprite.FlipH = true;
         }
@@ -62,6 +66,13 @@ public class Player : KinematicBody2D {
 	}
 	public override void _PhysicsProcess(float delta) {
 		GetInput(delta);
+
+        if (Position.x < StartXPos) {
+            float Opacity = (float) Mathf.InverseLerp(0, StartXPos, Position.x);
+
+            Color color = (flip == -1) ? new Color(1, 1, 1, Opacity) : new Color(1, 1, 1, Opacity);
+            _sprite.Modulate = color;
+        }
 	}
 
 	public void jump() {

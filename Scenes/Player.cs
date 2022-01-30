@@ -71,7 +71,9 @@ public class Player : KinematicBody2D {
 
             Color color = new Color(1, 1, 1, Opacity);
             _sprite.Modulate = color;
+            _sprite.Animation = (flip == -1 && on_floor) ? "flippushed" : "pushed";
         } else {
+            _sprite.Animation = (flip == -1 && on_floor) ? "default" : "flip";
             velocity = new Vector2(0, velocity.y);
         }
 

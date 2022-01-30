@@ -95,7 +95,7 @@ position = Vector2( 640, 346 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 7.0
 autostart = true
 
 [node name="blue_coyote" parent="." instance=ExtResource( 6 )]

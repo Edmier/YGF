@@ -8,7 +8,7 @@ public class Obstacle : StaticBody2D
 
 	public void init(int ScrollSpeed, bool onTop) {
 		this.ScrollSpeed = ScrollSpeed;
-        Position = new Vector2(1200, onTop ? 310 : 380);
+        Position = new Vector2(1350, onTop ? 310 : 380);
 
         if (onTop) {
             Sprite _sprite = GetNode<Sprite>("Sprite");

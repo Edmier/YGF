@@ -81,10 +81,12 @@ __meta__ = {
 
 [node name="TopPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 310 )
+fall_gravity_scale = 200.0
 
 [node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 275, 383 )
 rotation = 3.14159
+fall_gravity_scale = 200.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -112,6 +114,8 @@ autoplay = true
 script = ExtResource( 10 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
+ScrollSpeed = 500
+Frequency = 50
 
 [node name="good_ending" type="Sprite" parent="."]
 position = Vector2( 640, 360 )

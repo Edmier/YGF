@@ -73,6 +73,10 @@ public class Player : KinematicBody2D {
             Color color = new Color(1, 1, 1, Opacity);
             _sprite.Modulate = color;
         }
+
+		if (Position.x < 0) {
+			GetTree().ChangeScene("res://scenes/End_Scene.tscn");
+		}
 	}
 
 	public void jump() {
@@ -80,6 +84,7 @@ public class Player : KinematicBody2D {
 	}
 
 	public void jumpStop() {
-
+		
 	}
+	
 }

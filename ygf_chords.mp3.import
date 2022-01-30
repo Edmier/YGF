@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ygf_chords.mp3-2d7deb3c3658f35388f68b9a6c8f68a6.mp3str"
+
+[deps]
+
+source_file="res://ygf_chords.mp3"
+dest_files=[ "res://.import/ygf_chords.mp3-2d7deb3c3658f35388f68b9a6c8f68a6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

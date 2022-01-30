@@ -75,7 +75,7 @@ public class Player : KinematicBody2D {
             velocity = new Vector2(0, velocity.y);
         }
 
-		if (Position.x < 0) {
+		if (Position.x < -25) {
 			GetTree().ChangeScene("res://scenes/End_Scene.tscn");
 		}
         GetInput(delta);

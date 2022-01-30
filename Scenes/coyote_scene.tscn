@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/PlayerWhite/Jump/004.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/CoyoteBottomText.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/CoyoteTopText.gd" type="Script" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/CoyoteBlue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/CoyoteBlue.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/CoyoteOrange.gd" type="Script" id=8]
+[ext_resource path="res://Assets/PlayerBlack/Jump/004.png" type="Texture" id=9]
 [ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
 
@@ -18,6 +19,22 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=3]
 size = 100
 font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Node2D2" type="Node2D"]
 
@@ -34,6 +51,15 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 0.481
+margin_bottom = -0.320038
+rect_pivot_offset = Vector2( 1627, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 0.481
 margin_bottom = -0.320038
@@ -71,15 +97,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 275, 310 )
-script = null
-
-[node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 275, 383 )
-rotation = 3.14159
-script = null
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -97,6 +114,17 @@ script = ExtResource( 8 )
 [node name="Coyote" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 script = ExtResource( 15 )
+
+[node name="top_person" type="AnimatedSprite" parent="."]
+position = Vector2( 262, 311 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 4 )
+
+[node name="bottom_person" type="AnimatedSprite" parent="."]
+position = Vector2( 261, 382 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 5 )
+flip_v = true
 
 [connection signal="timeout" from="Timer" to="CanvasLayer/CoyoteTopText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/CoyoteBottomText" method="_on_Timer_timeout"]

@@ -78,7 +78,6 @@ position = Vector2( 200, 310 )
 [node name="BottomPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 383 )
 rotation = 3.14159
-flip = -1
 
 [node name="Floor" type="StaticBody2D" parent="."]
 

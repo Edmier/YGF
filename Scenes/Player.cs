@@ -20,6 +20,12 @@ public class Player : KinematicBody2D {
 
 	public override void _Ready() {
 		flip = Transform.Rotation > 0 ? -1 : 1;
+        if (flip == -1) {
+            var _sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+            _sprite.Animation = "flip";
+            _sprite.FlipH = true;
+        }
+
 	}
 
 	public void GetInput(float delta) {

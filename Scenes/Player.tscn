@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=1]
 [ext_resource path="res://Assets/PlayerBlack/Run/003.png" type="Texture" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://Assets/PlayerWhite/Run/002.png" type="Texture" id=20]
 [ext_resource path="res://Assets/PlayerWhite/Run/003.png" type="Texture" id=21]
 [ext_resource path="res://Assets/PlayerWhite/Run/007.png" type="Texture" id=22]
-[ext_resource path="res://Assets/PlayerWhite/Run/009.png" type="Texture" id=23]
 [ext_resource path="res://Assets/PlayerWhite/Run/011.png" type="Texture" id=24]
 [ext_resource path="res://Assets/PlayerWhite/Run/005.png" type="Texture" id=25]
 
@@ -36,7 +35,7 @@ animations = [ {
 "name": "default",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "flip",
 "speed": 15.0
@@ -52,4 +51,5 @@ shape = SubResource( 1 )
 position = Vector2( 0, -28 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
+frame = 10
 playing = true

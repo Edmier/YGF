@@ -2,9 +2,9 @@ extends Label
 
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+# Declare member variables here
+signal good_end
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +36,9 @@ func _on_Timer_timeout():
 		x = x + 1
 	elif (x == 5): 
 		set_text("Far from insanity.")
+		x = x + 1
+	elif (x==6) :
+		emit_signal("good_end")
 	
 	
 	

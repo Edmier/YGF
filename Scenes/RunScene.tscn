@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Music.gd" type="Script" id=10]
 [ext_resource path="res://ygf_main.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Assets/good_end.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/good_ending.gd" type="Script" id=13]
+[ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
+[ext_resource path="res://Assets/gameover.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -109,8 +114,25 @@ script = ExtResource( 10 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
 
+[node name="good_ending" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+z_index = 1000
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[node name="Coyote" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="bad_ending" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 360 )
+texture = ExtResource( 16 )
+
+[connection signal="good_end" from="CanvasLayer/TopText" to="good_ending" method="_on_TopText_good_end"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]
+[connection signal="coyote_time" from="CanvasLayer/BottomText" to="Coyote" method="_on_BottomText_coyote_time"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/TopText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/BottomText" method="_on_Timer_timeout"]

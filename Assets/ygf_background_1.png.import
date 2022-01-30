@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ygf_background_1.png-8c9a31fdc95014985215cb0e224a6ae7.stex"
+path="res://.import/ygf_background_1.png-eed09615e7a76d697716510f6f514239.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ygf_background_1.png"
-dest_files=[ "res://.import/ygf_background_1.png-8c9a31fdc95014985215cb0e224a6ae7.stex" ]
+source_file="res://Assets/ygf_background_1.png"
+dest_files=[ "res://.import/ygf_background_1.png-eed09615e7a76d697716510f6f514239.stex" ]
 
 [params]
 

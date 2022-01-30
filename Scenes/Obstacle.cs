@@ -8,6 +8,7 @@ public class Obstacle : RigidBody2D
 
 	public void init(int ScrollSpeed) {
 		this.ScrollSpeed = ScrollSpeed;
+        Position = new Vector2(600, 400);
 	}
 
 	public override void _Ready() {

@@ -26,7 +26,6 @@ public class ObstacleGenerator : Node
 
 		Obstacle newObs = (Obstacle) ObstacleScene.Instance();
 		newObs.init(ScrollSpeed);
-		newObs.Position = new Vector2(600, 400);
 
 		AddChild(newObs);
 		// Obstacles.Add(newObs);

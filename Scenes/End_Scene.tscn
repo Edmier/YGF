@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/CoyoteBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/CoyoteOrange.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( 1627, 45 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 60.0
+margin_top = 92.0
+margin_right = 884.0
+margin_bottom = 237.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.164706, 0.207843, 0.635294, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "I met a coyote."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect"]
+margin_left = 1225.0
+margin_top = 691.0
+margin_right = 2049.0
+margin_bottom = 837.0
+rect_rotation = 180.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.866667, 0.541176, 0.2, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "I met a coyote."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 906, 216 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 995, 467 )
+scale = Vector2( 0.2, 0.2 )

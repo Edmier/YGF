@@ -12,7 +12,7 @@ public class ObstacleGenerator : Node
 	private Random random = new Random();
 
 	public override void _Ready() {
-		
+		createObstacle();
 	}
 
 	public override void _PhysicsProcess(float delta) {
@@ -26,7 +26,6 @@ public class ObstacleGenerator : Node
 
 		Obstacle newObs = (Obstacle) ObstacleScene.Instance();
 		newObs.init(ScrollSpeed);
-		newObs.Position = new Vector2(600, 400);
 
 		AddChild(newObs);
 		// Obstacles.Add(newObs);

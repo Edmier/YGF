@@ -1,13 +1,14 @@
 using Godot;
 using System;
 
-public class Obstacle : RigidBody2D
+public class Obstacle : StaticBody2D
 {
 
 	[Export] public int ScrollSpeed = 0;
 
 	public void init(int ScrollSpeed) {
 		this.ScrollSpeed = ScrollSpeed;
+        Position = new Vector2(600, 400);
 	}
 
 	public override void _Ready() {
@@ -15,7 +16,7 @@ public class Obstacle : RigidBody2D
 	}
 
 	public override void _PhysicsProcess(float delta) {
-		// Position.x -= (ScrollSpeed / 100 * delta);
+		Position -= new Vector2(ScrollSpeed * delta, 0);
 
 		if (Position.x < -100) {
 			QueueFree();

@@ -12,7 +12,7 @@ public class ObstacleGenerator : Node
 	private Random random = new Random();
 
 	public override void _Ready() {
-		
+		createObstacle();
 	}
 
 	public override void _PhysicsProcess(float delta) {

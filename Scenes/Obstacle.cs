@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Obstacle : RigidBody2D
+public class Obstacle : StaticBody2D
 {
 
 	[Export] public int ScrollSpeed = 0;

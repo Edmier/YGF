@@ -11,9 +11,10 @@ public class Obstacle : StaticBody2D
         Position = new Vector2(1350, onTop ? 310 : 380);
 
         if (onTop) {
-            Sprite _sprite = GetNode<Sprite>("Sprite");
+            AnimatedSprite _sprite = GetNode<AnimatedSprite>("Sprite");
             _sprite.FlipV = true;
             _sprite.Modulate = new Color(0, 0, 0, 255);
+            _sprite.Frame = new Random().Next(0, 4);
         }
 	}
 

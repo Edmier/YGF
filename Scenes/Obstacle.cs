@@ -6,9 +6,15 @@ public class Obstacle : StaticBody2D
 
 	[Export] public int ScrollSpeed = 0;
 
-	public void init(int ScrollSpeed) {
+	public void init(int ScrollSpeed, bool onTop) {
 		this.ScrollSpeed = ScrollSpeed;
-        Position = new Vector2(600, 400);
+        Position = new Vector2(1200, onTop ? 310 : 380);
+
+        if (onTop) {
+            Sprite _sprite = GetNode<Sprite>("Sprite");
+            _sprite.FlipV = true;
+            _sprite.Modulate = new Color(0, 0, 0, 255);
+        }
 	}
 
 	public override void _Ready() {

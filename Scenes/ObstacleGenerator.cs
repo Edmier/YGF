@@ -5,14 +5,14 @@ using System.Collections.Generic;
 public class ObstacleGenerator : Node
 {
 	[Export] public int ScrollSpeed = 100;
-	[Export] public int Frequency = 100;
+	[Export] public int Frequency = 1000;
 
 	private PackedScene ObstacleScene = ResourceLoader.Load<PackedScene>("res://Scenes/Obstacle.tscn");
 	private List<Obstacle> Obstacles = new List<Obstacle>();
 	private Random random = new Random();
 
 	public override void _Ready() {
-		createObstacle();
+		
 	}
 
 	public override void _PhysicsProcess(float delta) {

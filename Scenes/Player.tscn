@@ -1,17 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Player.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerBlack/003.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PlayerBlack/010.png" type="Texture" id=3]
+[ext_resource path="res://Assets/PlayerBlack/011.png" type="Texture" id=4]
+[ext_resource path="res://Assets/PlayerBlack/006.png" type="Texture" id=5]
+[ext_resource path="res://Assets/PlayerBlack/000.png" type="Texture" id=6]
+[ext_resource path="res://Assets/PlayerBlack/008.png" type="Texture" id=7]
+[ext_resource path="res://Assets/PlayerBlack/007.png" type="Texture" id=8]
+[ext_resource path="res://Assets/PlayerBlack/004.png" type="Texture" id=9]
+[ext_resource path="res://Assets/PlayerBlack/005.png" type="Texture" id=10]
+[ext_resource path="res://Assets/PlayerBlack/001.png" type="Texture" id=11]
+[ext_resource path="res://Assets/PlayerBlack/009.png" type="Texture" id=12]
+[ext_resource path="res://Assets/PlayerBlack/002.png" type="Texture" id=13]
+[ext_resource path="res://Assets/PlayerWhite/000.png" type="Texture" id=14]
+[ext_resource path="res://Assets/PlayerWhite/001.png" type="Texture" id=15]
+[ext_resource path="res://Assets/PlayerWhite/010.png" type="Texture" id=16]
+[ext_resource path="res://Assets/PlayerWhite/006.png" type="Texture" id=17]
+[ext_resource path="res://Assets/PlayerWhite/004.png" type="Texture" id=18]
+[ext_resource path="res://Assets/PlayerWhite/008.png" type="Texture" id=19]
+[ext_resource path="res://Assets/PlayerWhite/002.png" type="Texture" id=20]
+[ext_resource path="res://Assets/PlayerWhite/003.png" type="Texture" id=21]
+[ext_resource path="res://Assets/PlayerWhite/007.png" type="Texture" id=22]
+[ext_resource path="res://Assets/PlayerWhite/009.png" type="Texture" id=23]
+[ext_resource path="res://Assets/PlayerWhite/011.png" type="Texture" id=24]
+[ext_resource path="res://Assets/PlayerWhite/005.png" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 15.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -20,5 +48,10 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -21 )
+scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
+animation = "New Anim"
+frame = 11
+playing = true

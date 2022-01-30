@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Music.gd" type="Script" id=10]
 [ext_resource path="res://ygf_main.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Assets/good_end.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/good_ending.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -89,7 +91,7 @@ position = Vector2( 640, 346 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 autostart = true
 
 [node name="blue_coyote" parent="." instance=ExtResource( 6 )]
@@ -109,6 +111,13 @@ script = ExtResource( 10 )
 
 [node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
 
+[node name="good_ending" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+z_index = 1000
+texture = ExtResource( 12 )
+script = ExtResource( 13 )
+
+[connection signal="good_end" from="CanvasLayer/TopText" to="good_ending" method="_on_TopText_good_end"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]

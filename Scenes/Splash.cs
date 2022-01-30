@@ -19,13 +19,13 @@ public class Splash : Node
 
     public override void _Process(float delta) {
         if (appearing) {
-            float Opacity = _img.Modulate.a + 0.005f;
+            float Opacity = _img.Modulate.a + (_img.Modulate.a * delta) + 0.005f;
             Color color = new Color(1, 1, 1, Opacity);
             _img.Modulate = color;
 
             appearing = !(Opacity >= 1);
         } else if (_img.Modulate.a > 0) {
-            Color color = new Color(1, 1, 1, _img.Modulate.a - 0.02f);
+            Color color = new Color(1, 1, 1, _img.Modulate.a + (_img.Modulate.a * delta) - 0.02f);
             _img.Modulate = color;
             _color.Color = color;
         } else {

@@ -19,6 +19,7 @@ func _ready():
 var x = 0;
 
 func _on_Timer_timeout():
+	
 	if (x == 0): 
 		set_text("He told me.")
 		x = x + 1

@@ -19,6 +19,9 @@ public class Player : KinematicBody2D {
 	private int flip = 1;
     [Export] public int StartXPos = 325;
 
+    private float lastPos = 0;
+    private bool beingPushed = false;
+
     private AnimatedSprite _sprite;
 
 	public override void _Ready() {
@@ -29,7 +32,7 @@ public class Player : KinematicBody2D {
             _sprite.Animation = "flip";
             _sprite.FlipH = true;
         }
-
+        lastPos = StartXPos;
 	}
 
 	public void GetInput(float delta) {
@@ -74,6 +77,16 @@ public class Player : KinematicBody2D {
         } else {
             velocity = new Vector2(0, velocity.y);
         }
+
+        if (Position.x < lastPos && on_floor) {
+            _sprite.Animation = (flip == -1) ? "pushed" : "flippushed";
+        } else if (on_floor) {
+            _sprite.Animation = (flip == 1) ? "default" : "flip";
+        } else {
+            _sprite.Animation = (flip == -1) ? "jump" : "flipjump";
+        }
+
+        lastPos = Position.x;
 
 		if (Position.x < -50) {
 			GetTree().ChangeScene("res://scenes/End_Scene.tscn");

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ObstacleGenerator : Node
 {
-	[Export] public int ScrollSpeed = 100;
+	[Export] public int ScrollSpeed = 50;
 	[Export] public int Frequency = 10;
     [Export] public int Cooldown = 10;
     private double Timer = 0;

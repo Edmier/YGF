@@ -1,18 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/BottomText.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/TopText.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/CoyoteOrange.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/CoyoteBlue.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/CoyoteBlue.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/CoyoteOrange.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Music.gd" type="Script" id=10]
 [ext_resource path="res://ygf_main.mp3" type="AudioStream" id=11]
-[ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
-[ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -93,17 +87,8 @@ position = Vector2( 640, 346 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
-
-[node name="blue_coyote" parent="." instance=ExtResource( 6 )]
-position = Vector2( 896, 201 )
-scale = Vector2( 0.2, 0.2 )
-script = ExtResource( 7 )
-
-[node name="orange_coyote" parent="." instance=ExtResource( 5 )]
-position = Vector2( 984, 452 )
-scale = Vector2( 0.2, 0.2 )
-script = ExtResource( 8 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
@@ -114,13 +99,6 @@ script = ExtResource( 10 )
 ScrollSpeed = 500
 Frequency = 50
 
-[node name="Coyote" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-script = ExtResource( 15 )
-
-[connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
-[connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]
-[connection signal="coyote_time" from="CanvasLayer/BottomText" to="Coyote" method="_on_BottomText_coyote_time"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/TopText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/BottomText" method="_on_Timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/MochiyPopPOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://ygf_background_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ygf_background_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/ygf_background_2.png" type="Texture" id=3]
 [ext_resource path="res://Start.gd" type="Script" id=4]
 [ext_resource path="res://start_game.gd" type="Script" id=5]

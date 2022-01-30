@@ -33,6 +33,7 @@ func _on_Timer_timeout():
 		x = x + 1
 	elif (x == 4): 
 		set_text("You'll go far.")
+		get_tree().change_scene("res://scenes/coyote_scene.tscn");
 		x = x + 1
 	elif (x == 5): 
 		set_text("Far from insanity.")

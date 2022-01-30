@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Merienda-Regular.ttf" type="DynamicFontData" id=2]
@@ -8,9 +8,6 @@
 [ext_resource path="res://Scenes/CoyoteBlue.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/CoyoteBlue.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/CoyoteOrange.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/ObstacleGenerator.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Music.gd" type="Script" id=10]
-[ext_resource path="res://ygf_main.mp3" type="AudioStream" id=11]
 [ext_resource path="res://ygf_chords.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Scenes/Coyote.gd" type="Script" id=15]
 
@@ -21,9 +18,6 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=3]
 size = 100
 font_data = ExtResource( 2 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 640, 1.5 )
 
 [node name="Node2D2" type="Node2D"]
 
@@ -48,7 +42,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopText" type="Label" parent="CanvasLayer"]
+[node name="CoyoteTopText" type="Label" parent="CanvasLayer"]
 margin_left = 60.0
 margin_top = 92.0
 margin_right = 884.0
@@ -86,13 +80,8 @@ position = Vector2( 275, 383 )
 rotation = 3.14159
 fall_gravity_scale = 200.0
 
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 640, 346 )
-shape = SubResource( 1 )
-
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [node name="blue_coyote" parent="." instance=ExtResource( 6 )]
@@ -105,22 +94,12 @@ position = Vector2( 984, 452 )
 scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 8 )
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-autoplay = true
-script = ExtResource( 10 )
-
-[node name="ObstacleGenerator" parent="." instance=ExtResource( 9 )]
-ScrollSpeed = 500
-Frequency = 50
-
 [node name="Coyote" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 script = ExtResource( 15 )
 
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="blue_coyote" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="orange_coyote" method="_on_BottomText_coyote_time"]
-[connection signal="coyote_time" from="CanvasLayer/BottomText" to="Music" method="_on_BottomText_coyote_time"]
 [connection signal="coyote_time" from="CanvasLayer/BottomText" to="Coyote" method="_on_BottomText_coyote_time"]
-[connection signal="timeout" from="Timer" to="CanvasLayer/TopText" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="CanvasLayer/CoyoteTopText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer" to="CanvasLayer/BottomText" method="_on_Timer_timeout"]

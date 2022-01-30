@@ -70,7 +70,7 @@ public class Player : KinematicBody2D {
         if (Position.x < StartXPos) {
             float Opacity = (float) Mathf.InverseLerp(0, StartXPos, Position.x);
 
-            Color color = (flip == -1) ? new Color(1, 1, 1, Opacity) : new Color(1, 1, 1, Opacity);
+            Color color = new Color(1, 1, 1, Opacity);
             _sprite.Modulate = color;
         }
 	}

@@ -6,8 +6,6 @@ public class Player : KinematicBody2D {
 
 	public Vector2 velocity = new Vector2();
 
-    [Export] public int flip = 1;
-
     //#Jump 
     [Export] public float fall_gravity_scale = 150.0f;
     [Export] public float low_jump_gravity_scale = 100.0f;
@@ -18,6 +16,11 @@ public class Player : KinematicBody2D {
     public float earth_gravity = 9.807f;
     [Export] public float gravity_scale = 100.0f;
     private bool on_floor = false;
+    private int flip = 1;
+
+    public override void _Ready() {
+        flip = Transform.Rotation > 0 ? -1 : 1;
+    }
 
 	public void GetInput(float delta) {
         if (Input.IsActionJustReleased("jump"))
@@ -27,12 +30,12 @@ public class Player : KinematicBody2D {
         velocity += new Vector2(0, 1) * earth_gravity * gravity_scale * delta * flip;
 
         // #Jump Physics
-        if (velocity.y > 0) { // #Player is falling
+        if (flip == -1 ? velocity.y < 0 : velocity.y > 0) { // #Player is falling
             // #Falling action is faster than jumping action | Like in mario
             // #On falling we apply a second gravity to the player
             // #We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
             velocity += new Vector2(0, 1) * earth_gravity * fall_gravity_scale * delta * flip;
-        } else if (velocity.y < 0 && jump_released) {// #Player is jumping 
+        } else if ((flip == -1 ? velocity.y > 0 : velocity.y < 0) && jump_released) {// #Player is jumping 
             // #Jump Height depends on how long you will hold key
             // #If we release the jump before reaching the max height 
             // #We apply ((gravity_scale + low_jump_gravity_scale) * earth_gravity) gravity on the player

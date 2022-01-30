@@ -42,13 +42,9 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="StreamTexture" id=6]
-flags = 4
-load_path = "res://.import/ygf_background_2.png-600418071bf504ebeb3a811ab5fd031e.stex"
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ), SubResource( 6 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 1.0
